@@ -1,0 +1,34 @@
+{
+  "name": "module-two-boilerplate",
+  "version": "1.0.0",
+  "description": "It's a boilerplate for future shiny app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaliyprokurat/module-two-boilerplate.git"
+  },
+  "author": "v_prokurat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitaliyprokurat/module-two-boilerplate/issues"
+  },
+  "homepage": "https://github.com/vitaliyprokurat/module-two-boilerplate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "clean-webpack-plugin": "^0.1.10",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "style-loader": "^0.13.1",
+    "webpack": "~1.13.2",
+    "webpack-dev-server": "~1.15.1"
+  }
+}
