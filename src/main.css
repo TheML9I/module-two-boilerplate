@@ -16,8 +16,31 @@ body {
   margin: auto;
   background: url(./images/spinner.gif) no-repeat;
   background-size: 64px 64px;
+  display: none;
+}
+.spinner.show {
+  display: block;
 }
 
 .search-results_item {
     margin: 8px 0 0;
+}
+
+.view {
+  margin: 50px 0 0;
+  display: flex;
+}
+
+.view_list {
+  //border: 1px solid red;
+  flex: 1 0 auto;
+}
+
+.view_profile {
+  //border: 1px solid red;
+  flex: 3 0 auto;
+}
+
+.search-results_item {
+  cursor: pointer;
 }
