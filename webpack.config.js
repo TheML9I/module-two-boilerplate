@@ -1,9 +1,10 @@
 var path = require('path')
-var appPath = path.join(__dirname, 'src')
-
 var webpack = require('webpack')
 var HtmlWebackPlugin = require('html-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+
+var root = __dirname
+var appPath = path.join(root, 'src')
 
 var env = process.env.NODE_ENV
 var debug = env !== 'production'
@@ -16,10 +17,11 @@ var plugins = [
     minify: false
   }),
   new CleanWebpackPlugin(['dist'], {
-    root: appPath,
+    root: root,
     verbose: true,
   })
 ]
+
 if(minify){
   plugins.push(new webpack.optimize.UglifyJsPlugin())
 }
@@ -29,7 +31,7 @@ module.exports = {
       bundle: './src/main.js'
     },
     output: {
-      path: './src/dist',
+      path: './src/../dist',
       filename: '[hash]_[name].js'
     },
     devtool: "inline-source-map",
@@ -41,15 +43,15 @@ module.exports = {
     module: {
       loaders: [
         {
-          test: /\.js/,
-          loader: "babel"
+          test: /\.js$/,
+          loaders: ['babel', 'eslint']
         },
         {
-          test: /\.css/,
+          test: /\.css$/,
           loaders: ['style', 'css']
         },
         {
-          test: /\.(gif|png|jpe?g)/,
+          test: /\.(gif|png|jpe?g)$/,
           loader: 'file',
           query:{
             name: '[path][name].[ext]?[hash]'

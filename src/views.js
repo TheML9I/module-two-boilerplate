@@ -1,13 +1,13 @@
-import {handleUserClick} from './handlers'
+import { handleUserClick } from './handlers';
 
 
-export function renderAccount({nickname, account_id}){
+export function renderAccount({ nickname, accountId }) {
   return `<div
             class="search-results_item js-user"
-            data-id="${account_id}">
+            data-id="${accountId}">
               ${nickname}
             </div>
-          `
+          `;
 }
 
 export function renderSearchResult(accounts) {
@@ -15,22 +15,21 @@ export function renderSearchResult(accounts) {
   // Note! it's already exist. See index.html for more info.
   // Each search result item should be rendered
   // inside node with `search-results_item` class name.
-  const html = accounts.map(renderAccount).join('')
-  const node = document.querySelector("#search-results").innerHTML = html
-  for (let element of  document.querySelectorAll(".js-user")){
-    element.addEventListener('click', handleUserClick)
+  const html = accounts.map(renderAccount).join('');
+  document.querySelector('#search-results').innerHTML = html;
+  for (const element of document.querySelectorAll('.js-user')) {
+    element.addEventListener('click', handleUserClick);
   }
-
 }
 
-export function renderUserProfile({nickname, global_rating, statistics}){
-  const stats = statistics.all
-  const winsPercent = (stats.wins / stats.battles * 100).toFixed(2)
+export function renderUserProfile({ nickname, globalRating, statistics }) {
+  const stats = statistics.all;
+  const winsPercent = ((stats.wins / stats.battles) * 100).toFixed(2);
   document.querySelector('#profile').innerHTML = `
           <h3>${nickname}</h3>
           <div>
-            <p>global rating: ${global_rating}</p>
+            <p>global rating: ${globalRating}</p>
             <p>battles: ${stats.battles}</p>
             <p>wins percent: ${winsPercent}%</p>
-          </div>`
+          </div>`;
 }
