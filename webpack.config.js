@@ -5,6 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var root = __dirname
 var appPath = path.join(root, 'src')
+var distPath = path.join(root, 'dist')
 
 var env = process.env.NODE_ENV
 var debug = env !== 'production'
@@ -31,7 +32,7 @@ module.exports = {
       bundle: './src/main.js'
     },
     output: {
-      path: './src/../dist',
+      path: distPath,
       filename: '[hash]_[name].js'
     },
     devtool: "inline-source-map",
@@ -44,18 +45,23 @@ module.exports = {
       loaders: [
         {
           test: /\.js$/,
-          loaders: ['babel', 'eslint']
+          loaders: ['babel', 'eslint'],
+          exclude: /node_modules/
         },
         {
           test: /\.css$/,
           loaders: ['style', 'css']
         },
         {
-          test: /\.(gif|png|jpe?g)$/,
+          test: /\.(gif|png|jpe?g|svg)$/,
           loader: 'file',
           query:{
             name: '[path][name].[ext]?[hash]'
           }
+        },
+        {
+          test: /\.(eot|ttf|woff|woff2)$/,
+          loader: 'file'
         }
       ]
     },

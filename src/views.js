@@ -1,12 +1,12 @@
 import { handleUserClick } from './handlers';
 
 
-export function renderAccount({ nickname, accountId }) {
-  return `<div
+export function renderAccount({ nickname, account_id: accountId }) {
+  return `<tr><td 
             class="search-results_item js-user"
             data-id="${accountId}">
               ${nickname}
-            </div>
+            <td></tr>
           `;
 }
 
