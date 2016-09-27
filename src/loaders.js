@@ -10,7 +10,7 @@ function toggleSpinner() {
 
 function makeRequest(url) {
   toggleSpinner();
-  return fetch(url)
+  return window.fetch(url)
         .then((resp) => {
           toggleSpinner();
           return resp.json();
@@ -27,7 +27,7 @@ function makeRequest(url) {
 function loadUsers(username) {
   const url = `${API_PROXY_URL}/${GAME}/account/list/?search=${username}`;
     // create request to the url and return a promise
-  return fetch(url)
+  return window.fetch(url)
         .then(resp => resp.json())
         .then(json => new Promise((resolve, reject) => {
           if (json.status === 'ok') {
